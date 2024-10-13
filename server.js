@@ -2,7 +2,7 @@ const express = require('express');
 const expressGraphQL = require('express-graphql').graphqlHTTP;
 
 const app = express();
-app.use('graphql', expressGraphQL({
+app.use('/graphql', expressGraphQL({
   graphiql: true
 }));
 
