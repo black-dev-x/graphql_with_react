@@ -5,7 +5,8 @@ const {
   GraphQLObjectType,
   GraphQLString,
   GraphQLInt,
-  GraphQLSchema
+  GraphQLSchema,
+  GraphQLList
 } = graphql
 
 const CompanyType = new GraphQLObjectType({
@@ -36,6 +37,19 @@ const UserType = new GraphQLObjectType({
 const RootQuery = new GraphQLObjectType({
   name: 'RootQueryType',
   fields: {
+    companies: {
+      type: new GraphQLList(CompanyType),
+      async resolve(_, args) {
+        return await axios.get(`http://localhost:3000/companies/`).then(res => res.data)
+      }
+    },
+    company: {
+      type: CompanyType,
+      args: { id: { type: GraphQLString } },
+      async resolve(_, args) {
+        return await axios.get(`http://localhost:3000/companies/${args.id}`).then(res => res.data)
+      }
+    },
     user: {
       type: UserType,
       args: { id: { type: GraphQLString } },
