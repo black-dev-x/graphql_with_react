@@ -1,6 +1,11 @@
 {
   "users": [
-    { "id": "23", "name": "Bill", "age": 20},
-    { "id": "43", "name": "Alex", "age": 40}
+    { "id": "23", "name": "Bill", "age": 20, "companyId": "1"},
+    { "id": "47", "name": "Alex", "age": 40, "companyId": "2"},
+    { "id": "43", "name": "Nick", "age": 40, "companyId": "2"}
+  ],
+  "companies": [
+    { "id": "1", "name": "Apple", "description": "Paying my salary"},
+    { "id": "2", "name": "Google", "description": "Destroying the World"}
   ]
 }
