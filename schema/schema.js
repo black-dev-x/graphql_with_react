@@ -101,7 +101,6 @@ const mutation = new GraphQLObjectType({
         companyId: { type: GraphQLString }
       },
       resolve(_, args) {
-        console.log(args)
         return axios.patch(`http://localhost:3000/users/${args.id}`, args).then(res => res.data)
       }
     }
